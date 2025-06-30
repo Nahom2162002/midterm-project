@@ -75,12 +75,23 @@ def main():
                         except ZeroDivisionError:
                             print("ERROR: Can't divide by zero!")
                     case "root":
-                        print("Input a number to find the square root of")
+                        print("Input a number and the nth root")
                         try:
                             x = int(input())
+                            y = int(input())
                             calculation = o.calculate("root")
-                            print("Square root of", x, ":", calculation.root(x))
-                            history_file.write("Square root of ", str(x), ":", str(calculation.root(x)))
+                            print(y, "th root of", x, ":", calculation.root(x, y))
+                            history_file.write(y, "th root of ", str(x), ":", str(calculation.root(x, y)))
+                        except ValueError:
+                            print("ERROR: Please input an integer only")
+                    case "power":
+                        print("Input a number and the power")
+                        try:
+                            x = int(input())
+                            y = int(input())
+                            calculation = o.calculate("power")
+                            print(x, "to the", y, "th power = ", calculation.power(x, y))
+                            history_file.write(x, "to the", y, "th power = ", str(calculation.power(x, y)))
                         except ValueError:
                             print("ERROR: Please input an integer only")
         
