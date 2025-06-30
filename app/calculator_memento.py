@@ -46,30 +46,3 @@ class Caretaker:
             self._current_index += 1
             return self._mementos[self._current_index]
         return None
-
-
-if __name__ == "__main__":
-
-    editor = Originator("Initial Text")
-
-    caretaker = Caretaker()
-
-    caretaker.save(editor.create_memento())
-
-    editor.set_text("First Edit")
-    caretaker.save(editor.create_memento())
-
-    editor.set_text("Second Edit")
-    caretaker.save(editor.create_memento())
-
-    print("Current State:", editor)  
-    memento = caretaker.undo()
-    if memento:
-        editor.restore_memento(memento)
-    print("After Undo:", editor)  
-
-    
-    memento = caretaker.redo()
-    if memento:
-        editor.restore_memento(memento)
-    print("After Redo:", editor)  
