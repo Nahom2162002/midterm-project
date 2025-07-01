@@ -1,11 +1,12 @@
 from operations import CalculationFactory as o  
 from history import History as h 
+from calculator_memento import Caretaker as c 
 
 def main():
     history_file = open("history.txt", "w+")
     while True:
         try:
-            print("Would you like to add, subtract, multiply, or divide?")
+            print("Would you like to add, subtract, multiply, divide, root, power, modulus, percentage, absolute?")
             user_input = input(">>> ")
             
             if user_input.lower() in ("exit()", "quit()"):
@@ -27,6 +28,12 @@ def main():
             
             if user_input.lower() in ("history"):
                 h.help(history_file)
+            
+            if user_input.lower() in ("undo"):
+                c.undo() 
+            
+            if user_input.lower() in ("redo"):
+                c.redo() 
 
             result = eval(user_input)
             
