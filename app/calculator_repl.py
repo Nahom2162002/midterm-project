@@ -94,6 +94,33 @@ def main():
                             history_file.write(x, "to the", y, "th power = ", str(calculation.power(x, y)))
                         except ValueError:
                             print("ERROR: Please input an integer only")
+                    case "modulus":
+                        print("Input two values")
+                        try:
+                            x = int(input())
+                            y = int(input())
+                            calculation = o.calculate("modulus")
+                            print("Remainder of ", x, "and", y, "=", calculation.remainder(x, y))
+                        except ValueError:
+                            print("ERROR: Please input integers only")
+                    case "percentage":
+                        print("Input two values")
+                        try:
+                            x = int(input())
+                            y = int(input())
+                            calculation = o.calculate("percentage")
+                            print(x, "% of", y, "=", calculation.percentage(x, y))
+                        except ValueError:
+                            print("ERROR: Please input integers only")
+                    case "absolute":
+                        print("Input two values")
+                        try:
+                            x = int(input())
+                            y = int(input())
+                            calculation = o.calculate("absolute")
+                            print("Absolute difference of", x, "and", y, "=", calculation.absolute_diff(x, y))
+                        except ValueError:
+                            print("ERROR: Please input integers only")
         
         except Exception as e:
             print(f"Error: {e}")
